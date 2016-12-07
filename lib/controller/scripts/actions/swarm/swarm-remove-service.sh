@@ -16,7 +16,7 @@ DOCKER_IMAGE="$2"
 
 NETWORK_OVERLAY="gamma-network"
 
-sudo docker service rm $SERVICENAME
+docker service rm $SERVICENAME
 
 ###
 # swarm remove docker images

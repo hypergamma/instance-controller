@@ -14,4 +14,4 @@ SERVICENAME="$1"
 
 REPLICA_COUNT="$2"
 
-sudo docker service update --replicas $REPLICA_COUNT $SERVICENAME
+docker service update --replicas $REPLICA_COUNT $SERVICENAME
