@@ -5,10 +5,10 @@ function exit_with_code() {
 }
 
 function usage() {
-	echo "./build_image.sh image_name dockerfile_root func_imgname nfunc nuser"
+	echo "./build_image.sh image_name dockerfile_root nfunc nuser"
 }
 
-if [[ $# -ne 5 ]];
+if [[ $# -ne 4 ]];
 then
 	usage;
 	exit_with_code -1 ## invalid arguments
@@ -17,14 +17,13 @@ fi
 ### variable
 image_name=$1
 dockerfile_root=$2
-func_imgname=$3
-nuser=$4
-nfunc=$5
+nuser=$3
+nfunc=$4
 
 REGISTRY="52.187.69.164:5000"
 
 # build image
-docker build --build-arg func_imgname=func_imgname --build-arg nfunc=nfunc --build-arg nuser=nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
+docker build --build-arg nfunc=nfunc --build-arg nuser=nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
 
 # check build success
 if [[ $? -ne 0 ]];

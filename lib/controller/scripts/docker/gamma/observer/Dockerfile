@@ -12,7 +12,6 @@ ADD . /observer
 
 RUN npm install
 
-ENV FUNC_IMG_NAME $func_imgname
 ENV FUNC_NAME $nfunc
 ENV USER_NAME $nuser
 

@@ -1,7 +1,6 @@
 {
   "resource": {
-    "cpu_usage": { "max": 0.75, "min": 0.15 } ,
-    "mem_usage": { "max": 0.75, "min": 0.15 }
+    "cpu_usage": { "max": 75, "min": 15 }
   },
   "function": {
 
