@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function exit_with_code() {
 	# remove working directory
