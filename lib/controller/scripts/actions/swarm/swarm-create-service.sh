@@ -21,4 +21,4 @@ REPLICA_COUNT="$3"
 
 NETWORK_OVERLAY="gamma-network"
 
-sudo docker service create --replicas $REPLICA_COUNT --network $NETWORK_OVERLAY --name $SERVICENAME $REGISTRY/$DOCKER_IMAGE
+docker service create --replicas $REPLICA_COUNT --network $NETWORK_OVERLAY --name $SERVICENAME $REGISTRY/$DOCKER_IMAGE

@@ -12,16 +12,11 @@ FILEPATH="$1"
 
 IMAGE_NAME="$2"
 
-while IFS=\t read -r ip hostname
+for hostname in `sed '/#.*/d' $FILEPATH  | awk '{print $2}'`
 do
-  if [ ! -z "$ip" ]; then
-    [[ "$ip" =~ ^#.*$ ]] && continue
+  echo "get into swarm node - $hostname"
+  eval "$(docker-machine env $hostname)"
 
-    echo "get into swarm node - $hostname"
-    eval "$(docker-machine env $hostname)"
-
-    #remove image
-    docker rmi $IMAGE_NAME
-
-  fi
-done < "$FILEPATH"
+  #remove image
+  docker rmi $IMAGE_NAME
+done
