@@ -8,7 +8,7 @@ function usage() {
 	echo "./build_image.sh image_name dockerfile_root func_imgname nfunc nuser"
 }
 
-if [[ $# -ne 3 ]];
+if [[ $# -ne 5 ]];
 then
 	usage;
 	exit_with_code -1 ## invalid arguments
