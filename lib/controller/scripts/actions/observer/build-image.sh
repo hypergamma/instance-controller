@@ -24,7 +24,7 @@ nfunc=$5
 REGISTRY="52.187.69.164:5000"
 
 # build image
-docker build --build-arg func_imgname=func_imgname nfunc=nfunc nuser=nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
+docker build --build-arg func_imgname=func_imgname --build-arg nfunc=nfunc --build-arg nuser=nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
 
 # check build success
 if [[ $? -ne 0 ]];
