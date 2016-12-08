@@ -5,7 +5,7 @@ ARG nfunc
 ARG nuser
 
 RUN mkdir -p /observer
-COPY $observer_path /observer
+COPY . /observer
 
 ENV FUNC_NAME $nfunc
 ENV USER_NAME $nuser
