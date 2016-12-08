@@ -21,11 +21,11 @@ env_ver=$5
 
 #if [[ $PRODUCTION_GAMMA = "production" ]];
 #then
-#    REGISTRY="52.187.69.164:5000"
-#    code_full_path=/mnt/functions/$code_path
+    REGISTRY="52.187.69.164:5000"
+    code_full_path=/mnt/functions/$code_path
 #else
-    REGISTRY="0.0.0.0:5000"
-   code_full_path=/Users/miri/nginxroot/$code_path
+#    REGISTRY="0.0.0.0:5000"
+#   code_full_path=/Users/miri/nginxroot/$code_path
 #fi
 
 work_dir=$dockerfile_root$image_name.$current_time
