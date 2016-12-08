@@ -47,10 +47,10 @@ fi
 # get code
 cp $code_full_path/index.js $work_dir/code/
 
-# get user library 
+# get user library
 #cp $code_full_path/lib.zip $work_dir/code
 
-# unpacking.. 
+# unpacking..
 #tar -xvf $work_dir/code/lib.zip -C $work_dir/code
 
 # check code valid
