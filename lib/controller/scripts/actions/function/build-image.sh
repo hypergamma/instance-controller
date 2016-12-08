@@ -44,8 +44,14 @@ then
 	exit_with_code -1 $work_dir ## invalid arguments
 fi
 
-# get code
+# get user code
 cp $code_full_path/index.js $work_dir/code/
+
+# get user library 
+cp $code_full_path/lib.zip $work_dir/code 
+
+# unpacking.. 
+tar -xvf $work_dir/code/lib.zip -C $work_dir/code 
 
 # check code valid
 if [[ $? -ne 0 ]];
