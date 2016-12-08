@@ -14,4 +14,5 @@ SERVICENAME="$1"
 
 REPLICA_COUNT="$2"
 
-docker service scale $SERVICENAME=$REPLICA_COUNT
+docker service scale $SERVICENAME=$REPLICA_COUNT gamma-proxy=0
+docker service scale gamma-proxy=1
