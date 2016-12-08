@@ -18,6 +18,8 @@ dockerfile_root=$2
 code_path=$3
 env=$4
 env_ver=$5
+nuser=$6
+nfunc=$7
 
 #if [[ $PRODUCTION_GAMMA = "production" ]];
 #then
@@ -36,7 +38,7 @@ mkdir $work_dir/code
 
 cp $dockerfile_root/Dockerfile $work_dir/Dockerfile
 
-if [[ $# -ne 5 ]];
+if [[ $# -ne 7 ]];
 then
 	usage;
 	exit_with_code -1 $work_dir ## invalid arguments
@@ -59,7 +61,7 @@ rm $work_dir/Dockerfile.1
 rm $work_dir/Dockerfile.2
 
 # build image
-docker build --build-arg code=code -t ${REGISTRY}/$image_name $work_dir -f $work_dir/Dockerfile.final
+docker build --build-arg code=code --build-arg nfunc=nfunc --build-arg nuser=nuser -t ${REGISTRY}/$image_name $work_dir -f $work_dir/Dockerfile.final
 
 # check build success
 if [[ $? -ne 0 ]];
