@@ -23,7 +23,7 @@ nfunc=$4
 REGISTRY="52.187.69.164:5000"
 
 # build image
-docker build --build-arg nfunc=nfunc --build-arg nuser=nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
+docker build --build-arg nfunc=$nfunc --build-arg nuser=$nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
 
 # check build success
 if [[ $? -ne 0 ]];
