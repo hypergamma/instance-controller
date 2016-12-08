@@ -1,6 +1,6 @@
 {
   "resource": {
-    "cpu_usage": { "max": 40, "min": 10 }
+    "cpu_usage": { "max": 35, "min": 15 }
   },
   "function": {
 
