@@ -44,14 +44,14 @@ then
 	exit_with_code -1 $work_dir ## invalid arguments
 fi
 
-# get user code
+# get code
 cp $code_full_path/index.js $work_dir/code/
 
-# get user library 
-cp $code_full_path/lib.zip $work_dir/code 
+# get user library
+cp $code_full_path/lib.zip $work_dir/code
 
-# unpacking.. 
-tar -xvf $work_dir/code/lib.zip -C $work_dir/code 
+# unpacking..
+tar -xvf $work_dir/code/lib.zip -C $work_dir/code
 
 # check code valid
 if [[ $? -ne 0 ]];
@@ -67,7 +67,7 @@ rm $work_dir/Dockerfile.1
 rm $work_dir/Dockerfile.2
 
 # build image
-docker build --build-arg code=code --build-arg nfunc=nfunc --build-arg nuser=nuser -t ${REGISTRY}/$image_name $work_dir -f $work_dir/Dockerfile.final
+docker build --build-arg code=code --build-arg nfunc=$nfunc --build-arg nuser=$nuser -t ${REGISTRY}/$image_name $work_dir -f $work_dir/Dockerfile.final
 
 # check build success
 if [[ $? -ne 0 ]];
