@@ -16,14 +16,14 @@ fi
 
 ### variable
 image_name=$1
-dockerfile_root=$2
+observer_path=$2
 nuser=$3
 nfunc=$4
 
 REGISTRY="52.187.69.164:5000"
 
 # build image
-docker build --build-arg nfunc=$nfunc --build-arg nuser=$nuser -t ${REGISTRY}/$image_name $dockerfile_root -f $dockerfile_root/Dockerfile
+docker build --build-arg observer_path=$observer_path --build-arg nfunc=$nfunc --build-arg nuser=$nuser -t ${REGISTRY}/$image_name $observer_path -f $observer_path/Dockerfile
 
 # check build success
 if [[ $? -ne 0 ]];
