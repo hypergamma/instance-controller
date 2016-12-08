@@ -21,11 +21,11 @@ env_ver=$5
 
 #if [[ $PRODUCTION_GAMMA = "production" ]];
 #then
-    REGISTRY="52.187.69.164:5000"
-    code_full_path=/mnt/functions/$code_path
+#    REGISTRY="52.187.69.164:5000"
+#    code_full_path=/mnt/functions/$code_path
 #else
-#    REGISTRY="0.0.0.0:5000"
-#   code_full_path=/Users/miri/nginxroot/$code_path
+    REGISTRY="0.0.0.0:5000"
+   code_full_path=/Users/miri/nginxroot/$code_path
 #fi
 
 work_dir=$dockerfile_root$image_name.$current_time
@@ -42,8 +42,14 @@ then
 	exit_with_code -1 $work_dir ## invalid arguments
 fi
 
-# get code
+# get user code
 cp $code_full_path/index.js $work_dir/code/
+
+# get user library 
+cp $code_full_path/lib.zip $work_dir/code 
+
+# unpacking.. 
+tar -xvf $work_dir/code/lib.zip -C $work_dir/code 
 
 # check code valid
 if [[ $? -ne 0 ]];
