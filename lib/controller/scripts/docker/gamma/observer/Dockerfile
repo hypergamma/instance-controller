@@ -5,9 +5,9 @@ ARG nfunc
 ARG nuser
 
 RUN npm install
-COPY . /observer
 
 RUN mkdir -p /observer
+COPY . /observer
 
 ENV FUNC_NAME $nfunc
 ENV USER_NAME $nuser
